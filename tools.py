@@ -79,6 +79,21 @@ AREAS_DATABASE = {
         "budget_level": "Low to moderate",
         "language": "Mandarin Chinese",
         "currency": "Chinese Yuan (CNY)"
+    },
+
+    # Please change this dummy unknown destination to a another destination of your choice.
+    "norinori": {
+        "name": "Norinori",
+        "description": "A charming coastal region known for its relaxed atmosphere, beautiful beaches, and vibrant local culture.",
+        "best_season": "March to October",
+        "weather": "Mediterranean climate with warm summers and mild winters",
+        "highlights": ["Norinori Beach", "Historic Old Town", "Sunset Point", "Local Markets", "Cultural Center", "Mountain Viewpoint"],
+        "culture": "Blend of traditional and modern influences with strong community values",
+        "cuisine": "Fresh seafood, local specialties, street food, traditional desserts",
+        "activities": "Beach activities, cultural tours, hiking, local festivals, water sports",
+        "budget_level": "Moderate",
+        "language": "Norinori (local dialect), English widely spoken",
+        "currency": "Norinori Dollar (NRD)"
     }
 }
 
@@ -354,13 +369,50 @@ ACTIVITIES_DATABASE = {
             "price": "CNY 100-200",
             "description": "Experience authentic Chinese tea culture and ceremony"
         }
+    ],
+    "norinori": [
+        {
+            "name": "Norinori Beach Day",
+            "type": "Nature",
+            "duration": "Full day",
+            "price": "NRD 50-100",
+            "description": "Relax on the pristine beaches of Norinori with crystal clear waters and golden sand"
+        },
+        {
+            "name": "Historic Old Town Walking Tour",
+            "type": "Cultural",
+            "duration": "2-3 hours",
+            "price": "NRD 40-70",
+            "description": "Explore the charming old town with its traditional architecture and local shops"
+        },
+        {
+            "name": "Sunset Point Hike",
+            "type": "Adventure",
+            "duration": "Half day",
+            "price": "NRD 30-60",
+            "description": "Hike to the famous Sunset Point for breathtaking views of the coastline"
+        },
+        {
+            "name": "Local Market Food Tour",
+            "type": "Food & Drink",
+            "duration": "2-3 hours",
+            "price": "NRD 60-120",
+            "description": "Sample local delicacies and fresh produce at the vibrant Norinori markets"
+        },
+        {
+            "name": "Water Sports Adventure",
+            "type": "Adventure",
+            "duration": "Half day",
+            "price": "NRD 80-150",
+            "description": "Enjoy kayaking, paddleboarding, or snorkeling in the beautiful coastal waters"
+        }
     ]
 }
 
 
 def get_area_information(area_name: str = None, user_preferences: str = None) -> str:
     """Get information about travel destinations. 
-    The database contains information about Germany, Switzerland, Saudi Arabia, Dubai, Poland, and China.
+    The database contains information about Germany, Switzerland, Saudi Arabia, Dubai, Poland, China, and Norinori.
     The agent should choose the best destination based on user needs and preferences.
     If no area is specified, returns information about all available areas."""
     
@@ -448,7 +500,7 @@ def get_activities(destination: str, activity_type: str = None, budget: str = No
     destination = destination.strip().lower() if destination else None
     
     if not destination:
-        return "Please specify a destination to see available activities.\n\nAvailable destinations: Germany, Switzerland, Saudi Arabia, Dubai, Poland, China"
+        return "Please specify a destination to see available activities.\n\nAvailable destinations: Germany, Switzerland, Saudi Arabia, Dubai, Poland, China, Norinori"
     
     # Find the destination
     area_key = None
